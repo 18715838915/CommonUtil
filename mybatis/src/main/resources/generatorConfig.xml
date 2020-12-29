@@ -14,11 +14,11 @@
         <!--存放生成实体类的路径-->
         <javaModelGenerator targetPackage="init.luoyu.pojo" targetProject="src/main/java"/>
         <!--生成sql映射文件的路径-->
-        <sqlMapGenerator targetPackage="mapper.renter" targetProject="src/main/resources"/>
+        <sqlMapGenerator targetPackage="mappers" targetProject="src/main/resources"/>
         <!--生成dao接口的目录-->
         <javaClientGenerator type="XMLMAPPER" targetPackage="init.luoyu.dao" targetProject="src/main/java"/>
 
-        <table tableName="core_account" mapperName="Account" domainObjectName="Account"
+        <table tableName="core_account" mapperName="AccountMapper" domainObjectName="Account"
                enableDeleteByExample="false"
                enableUpdateByExample="false"
                enableSelectByExample="false"
