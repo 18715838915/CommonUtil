@@ -11,6 +11,8 @@
       <module>spring-validator</module>
       <module>exception-handler</module>
     <module>logback</module>
+    <module>thymeleaf</module>
+    <module>web-xshell</module>
   </modules>
   <artifactId>PrivateUtil</artifactId>
   <version>1.0-SNAPSHOT</version>
