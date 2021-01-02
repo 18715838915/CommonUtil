@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>欢迎来到Websocket</h2>
+    <div><span>用户名</span><input id="username" name="username" value="luoyu" type="text"></div>
+    <div><span>发送内容</span><input id="msg" name="msg" type="text"></div>
+    <button onclick="sendMsg()">发送消息</button>
+</body>
+<script th:src="@{/js/websocket.js}"></script>
+</html>
