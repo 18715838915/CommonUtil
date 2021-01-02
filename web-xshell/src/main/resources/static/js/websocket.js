@@ -6,7 +6,7 @@ function openSocket() {
         return;
     }
 
-    let userName = document.getElementById("username").value;
+    let userName = "luoyu";
     let sendUrl = websocketUrl + userName;
 
     if (socket != null){
@@ -20,7 +20,7 @@ function openSocket() {
     }
 
     socket.onmessage = function (msg) {
-        alert(msg);
+        console.log(msg.data);
     }
 
     socket.onclose = function () {

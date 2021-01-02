@@ -3,12 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .console {
+            height: 500px;
+            width: 300px;
+            border: 1px solid greenyellow;
+        }
+    </style>
 </head>
 <body>
     <h2>欢迎来到Websocket</h2>
-    <div><span>用户名</span><input id="username" name="username" value="luoyu" type="text"></div>
-    <div><span>发送内容</span><input id="msg" name="msg" type="text"></div>
-    <button onclick="sendMsg()">发送消息</button>
+    <div class="console">
+    </div>
+    <div>
+        <input type="text" id="msg">
+        <button onclick="sendMsg()">发送消息</button>
+    </div>
+
 </body>
 <script th:src="@{/js/websocket.js}"></script>
 </html>

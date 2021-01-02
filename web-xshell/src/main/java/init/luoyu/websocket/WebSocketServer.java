@@ -1,5 +1,9 @@
 package init.luoyu.websocket;
 
+import init.luoyu.common.utils.SpringContextUtil;
+import init.luoyu.shell.service.IXShellService;
+import init.luoyu.shell.service.impl.XShellServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.websocket.*;
@@ -26,6 +30,9 @@ public class WebSocketServer {
      * 用于存放每个客户端的session会话
      */
     private static ConcurrentHashMap<String, Session> sessionMap = new ConcurrentHashMap<>();
+
+
+
 
 
     /**
@@ -71,7 +78,8 @@ public class WebSocketServer {
 
     @OnMessage
     public void onMessage(Session session,String msg){
-        System.out.println("接收到客户端消息"+msg);
+        XShellServiceImpl shellService = SpringContextUtil.getBean(XShellServiceImpl.class);
+        shellService.exec(session, msg);
     }
 
 
