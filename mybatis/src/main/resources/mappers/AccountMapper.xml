@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="init.luoyu.dao.AccountMapper">
+  <resultMap id="BaseResultMap" type="init.luoyu.pojo.Account">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="createDate" jdbcType="VARCHAR" property="createdate" />
+    <result column="createTime" jdbcType="BIGINT" property="createtime" />
+    <result column="lastDate" jdbcType="VARCHAR" property="lastdate" />
+    <result column="lastTime" jdbcType="BIGINT" property="lasttime" />
+    <result column="fullName" jdbcType="VARCHAR" property="fullname" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="idCard" jdbcType="VARCHAR" property="idcard" />
+    <result column="isLock" jdbcType="BIT" property="islock" />
+    <result column="iconUrl" jdbcType="VARCHAR" property="iconurl" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, username, password, createDate, createTime, lastDate, lastTime, fullName, phone, 
+    idCard, isLock, iconUrl
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from core_account
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from core_account
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="init.luoyu.pojo.Account">
+    insert into core_account (id, username, password, 
+      createDate, createTime, lastDate, 
+      lastTime, fullName, phone, 
+      idCard, isLock, iconUrl
+      )
+    values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{createdate,jdbcType=VARCHAR}, #{createtime,jdbcType=BIGINT}, #{lastdate,jdbcType=VARCHAR}, 
+      #{lasttime,jdbcType=BIGINT}, #{fullname,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{idcard,jdbcType=VARCHAR}, #{islock,jdbcType=BIT}, #{iconurl,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="init.luoyu.pojo.Account">
+    insert into core_account
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="createdate != null">
+        createDate,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+      <if test="lastdate != null">
+        lastDate,
+      </if>
+      <if test="lasttime != null">
+        lastTime,
+      </if>
+      <if test="fullname != null">
+        fullName,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="idcard != null">
+        idCard,
+      </if>
+      <if test="islock != null">
+        isLock,
+      </if>
+      <if test="iconurl != null">
+        iconUrl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=BIGINT},
+      </if>
+      <if test="lastdate != null">
+        #{lastdate,jdbcType=VARCHAR},
+      </if>
+      <if test="lasttime != null">
+        #{lasttime,jdbcType=BIGINT},
+      </if>
+      <if test="fullname != null">
+        #{fullname,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null">
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="islock != null">
+        #{islock,jdbcType=BIT},
+      </if>
+      <if test="iconurl != null">
+        #{iconurl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="init.luoyu.pojo.Account">
+    update core_account
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        createDate = #{createdate,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createTime = #{createtime,jdbcType=BIGINT},
+      </if>
+      <if test="lastdate != null">
+        lastDate = #{lastdate,jdbcType=VARCHAR},
+      </if>
+      <if test="lasttime != null">
+        lastTime = #{lasttime,jdbcType=BIGINT},
+      </if>
+      <if test="fullname != null">
+        fullName = #{fullname,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null">
+        idCard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="islock != null">
+        isLock = #{islock,jdbcType=BIT},
+      </if>
+      <if test="iconurl != null">
+        iconUrl = #{iconurl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="init.luoyu.pojo.Account">
+    update core_account
+    set username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      createDate = #{createdate,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=BIGINT},
+      lastDate = #{lastdate,jdbcType=VARCHAR},
+      lastTime = #{lasttime,jdbcType=BIGINT},
+      fullName = #{fullname,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      idCard = #{idcard,jdbcType=VARCHAR},
+      isLock = #{islock,jdbcType=BIT},
+      iconUrl = #{iconurl,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
